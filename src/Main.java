@@ -1,21 +1,38 @@
-import CHATEAU.Archer;
-import CHATEAU.Guerrier;
-import CHATEAU.Mage;
+import java.util.Scanner;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-void main() {
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
-    Guerrier g1 = new Guerrier("Arthur");
-    Archer a1 = new Archer("Charles");
-    Mage m1 = new Mage("Merlin");
+        System.out.println("=== Bienvenue au Bar Java ===");
 
-    IO.println("=======================");
-    g1.avancer();
-    g1.special();
-    g1.frapper(m1);
-    g1.competence(a1);
-    IO.println("=======================");
+        // Saisie du nom
+        System.out.print("Entrez votre nom : ");
+        String name = scanner.nextLine();
 
+        // Saisie de l'âge
+        System.out.print("Entrez votre âge : ");
+        int age = scanner.nextInt();
 
+        // Création du client
+        Client client = new Client(name, age);
+        System.out.println("\nBonjour " + client.getName() + ", âge " + client.getAge() + ".");
+
+        // Création du bar (menu + staff)
+        Bar bar = new Bar();
+
+        System.out.println("\n--- Menu du bar ---");
+        bar.printMenu();
+
+        System.out.println("\n--- Employés du bar ---");
+        bar.printStaff();
+
+        // Exemple : test de paiement
+        System.out.println("\nTest de paiement : vous tentez de payer 10€.");
+        boolean paid = client.pay(10.0);
+        System.out.println("Paiement réussi ? " + paid);
+
+        // Tu peux enlever scanner.close() si tu prévois d'autres lectures plus tard dans le programme
+        scanner.close();
+    }
 }

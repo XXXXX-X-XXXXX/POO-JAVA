@@ -4,10 +4,13 @@ import java.util.List;
 public class Bar {
 
     private List<Drink> menu;
+    private List<Employee> staff;
 
     public Bar() {
         menu = new ArrayList<>();
+        staff = new ArrayList<>();
         createDrinks();
+        createStaff();
     }
 
     private void createDrinks() {
@@ -24,14 +27,32 @@ public class Bar {
         menu.add(new NonAlcoholicCocktail("Fruit Punch", 5.5, 60, false, 9));   // 9 en stock
     }
 
+    private void createStaff() {
+        staff.add(new Barman("John", 8, 9));
+        staff.add(new Waiter("Emma", 7, 8));
+        staff.add(new Cleaner("Paul", 6, 9));
+        // Tu peux ajouter ton Bouncer plus tard si tu veux :
+        // staff.add(new Bouncer("Mike", 7, 7));
+    }
+
     public void printMenu() {
+        System.out.println("=== MENU ===");
         for (Drink drink : menu) {
             System.out.println(drink.getDescription());
+        }
+    }
+
+    public void printStaff() {
+        System.out.println("\n=== STAFF ===");
+        for (Employee e : staff) {
+            System.out.println(e);           // utilise Employee.toString()
+            e.doTasks();               // montre le travail de chacun
         }
     }
 
     public static void main(String[] args) {
         Bar bar = new Bar();
         bar.printMenu();
+        bar.printStaff();
     }
 }
