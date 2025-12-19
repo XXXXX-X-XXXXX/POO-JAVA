@@ -17,6 +17,9 @@ public class Bar {
         // Soft drinks
         menu.add(new SoftDrink("Coca-Cola", 3.0, false, 20));   // 20 en stock
         menu.add(new SoftDrink("Orange Juice", 3.5, true, 15)); // 15 en stock
+        menu.add(new SoftDrink("Eau", 1.00, false, 10));
+        menu.add(new SoftDrink("Coca-Cola Cherry", 3.0, false, 1));//  stock 10
+
 
         // Alcoholic cocktails
         menu.add(new AlcoholicCocktail("Mojito", 8.0, 120, 14.0, true, 10));    // 10 en stock
@@ -25,14 +28,41 @@ public class Bar {
         // Non-alcoholic cocktails
         menu.add(new NonAlcoholicCocktail("Virgin Mojito", 6.0, 90, true, 12)); // 12 en stock
         menu.add(new NonAlcoholicCocktail("Fruit Punch", 5.5, 60, false, 9));   // 9 en stock
+        menu.add(new SoftDrink("CasiTail", 3.0, false, 1));
     }
 
     private void createStaff() {
-        staff.add(new Barman("John", 8, 9));
-        staff.add(new Waiter("Emma", 7, 8));
-        staff.add(new Cleaner("Paul", 6, 9));
+        staff.add(new Barman("Lucas", 8, 9));
+        staff.add(new Waiter("Jade", 7, 8));
+        staff.add(new Waiter("Mathilde", 9, 6));
+        staff.add(new Waiter("Stagiaire", 5, 1));
+        staff.add(new Bouncer("Mamad", 7, 9));
+        staff.add(new Bouncer("Abdel", 7, 2));
+
+        staff.add(new Cleaner("Clement", 6, 9));
         // Tu peux ajouter ton Bouncer plus tard si tu veux :
-        // staff.add(new Bouncer("Mike", 7, 7));
+
+    }
+
+    // Méthode pour récupérer le menu complet
+    public List<Drink> getMenu() {
+        return menu;
+    }
+
+    // Méthode pour récupérer un serveur (Waiter)
+    public Employee getWaiter() {
+        // Retourne le premier Waiter trouvé dans le staff
+        for (Employee e : staff) {
+            if (e instanceof Waiter) {
+                return e;
+            }
+        }
+        return null;
+    }
+
+    // Méthode pour récupérer la liste du staff
+    public List<Employee> getStaff() {
+        return staff;
     }
 
     public void printMenu() {

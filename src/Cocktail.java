@@ -2,11 +2,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 public abstract class Cocktail extends Drink {
-    protected Map<SoftDrink, Integer> ingredients; // ← NÉCESSAIRE pour le stock
+    protected Map<SoftDrink, Integer> ingredients; // nécessaire pour le stock ingrédients
     protected int preparationTime;
 
-    public Cocktail(String name, double price, int preparationTime) {
-        super(name, price);
+    // AJOUT: initialStock (combien de cocktails dispo)
+    public Cocktail(String name, double price, int preparationTime, int initialStock) {
+        super(name, price, initialStock);
         this.preparationTime = preparationTime;
         this.ingredients = new HashMap<>();
     }

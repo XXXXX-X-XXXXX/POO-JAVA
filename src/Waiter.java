@@ -1,6 +1,9 @@
 // Représente un serveur dans le bar
 public class Waiter extends Employee {
 
+
+
+
     // Constructeur du serveur
     public Waiter(String name, int speed, int quality) {
         super(name, speed, quality);
