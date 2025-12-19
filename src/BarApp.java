@@ -516,7 +516,7 @@ public class BarApp extends Application {
         StackPane background = new StackPane();
         background.setStyle("-fx-background-color: linear-gradient(to bottom, #111111, #1a1a2e);");
 
-        Label title = new Label("🛑 " + bouncer.getName() + " : \"Nom et âge.\"");
+        Label title = new Label("🛑 " + bouncer.getName() + " : \"Prénom et âge.\"");
         title.setStyle("-fx-font-size: 28px; -fx-text-fill: #ffd369; -fx-font-weight: bold;");
 
         Label subtitle = new Label("Recopie tes infos pour entrer.");
@@ -789,11 +789,11 @@ public class BarApp extends Application {
         Label subtitle = new Label("Entre tes informations pour commencer l'aventure");
         subtitle.setStyle("-fx-font-size: 14px; -fx-text-fill: #eeeeee;");
 
-        Label nameLabel = new Label("Nom :");
+        Label nameLabel = new Label("Prénom :");
         nameLabel.setStyle("-fx-font-size: 16px; -fx-text-fill: #ffd369; -fx-font-weight: bold;");
 
         TextField nameField = new TextField();
-        nameField.setPromptText("Entre ton nom");
+        nameField.setPromptText("Entre ton Prénom");
         nameField.setStyle("-fx-font-size: 14px; -fx-padding: 8px;" +
                 "-fx-background-color: rgba(255, 255, 255, 0.1);" +
                 "-fx-text-fill: white; -fx-prompt-text-fill: rgba(255, 255, 255, 0.5);" +
